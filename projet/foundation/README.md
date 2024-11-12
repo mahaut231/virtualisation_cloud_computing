@@ -17,7 +17,8 @@ https://www.terraform.io/docs/cli/plugins/signing.html
 Terraform has created a lock file .terraform.lock.hcl to record the provider
 selections it made above. Include this file in your version control repository
 so that Terraform can guarantee to make the same selections by default when
-you run "terraform init" in the future.```
+you run "terraform init" in the future.
+
 
 Terraform has been successfully initialized!
 
@@ -30,10 +31,17 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 
 Success! The configuration is valid.
+```
+
 
 Terraform validate :
+```hlc
+Success! The configuration is valid.
+```
 
 Terraform plan : 
+
+```hlc
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
@@ -299,4 +307,5 @@ Terraform will perform the following actions:
     }
 
 Plan: 14 to add, 0 to change, 0 to destroy.
+```
 
