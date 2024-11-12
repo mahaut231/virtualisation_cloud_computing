@@ -194,6 +194,8 @@ Ensuite :
 
     kubectl expose replicaset <rabbitmq-replicaset>
 
+Attention, il manque les env !!!
+
                           
 
 
