@@ -3,9 +3,9 @@
 
 Ce que retourne la console après avoir entré les commandes :
 
-**#Terraform init :
-**
+Terraform init :
 
+'''hlc
 Initializing the backend...
 Initializing provider plugins...
 - Finding latest version of scaleway/scaleway...
@@ -17,7 +17,7 @@ https://www.terraform.io/docs/cli/plugins/signing.html
 Terraform has created a lock file .terraform.lock.hcl to record the provider
 selections it made above. Include this file in your version control repository
 so that Terraform can guarantee to make the same selections by default when
-you run "terraform init" in the future.```hcl
+you run "terraform init" in the future.'''
 
 Terraform has been successfully initialized!
 
