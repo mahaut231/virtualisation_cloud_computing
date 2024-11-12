@@ -15,7 +15,7 @@ metadata:
   name: ingress-rule
 spec:
   rules:
-  - host: "calculatrice-yoyo-may-polytech-dijon.kiowy.net"
+  - host: "calculatrice-yohann-mahaut-polytech-dijon.kiowy.net"
     http:
       paths:
       - pathType: Prefix
@@ -32,6 +32,7 @@ spec:
 
 ## front.yaml
 
+```yaml
     apiVersion: apps/v1
     kind: ReplicaSet
     metadata:
@@ -55,6 +56,9 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+
+```
+
 Ensuite :
 
     kubectl expose replicaset <front-replicaset>
@@ -63,6 +67,7 @@ Ensuite :
 
 ## api.yaml
 
+```yaml
 
       apiVersion: apps/v1
         kind: ReplicaSet
@@ -88,13 +93,15 @@ Ensuite :
                   containerPort: 80
                   protocol: TCP
 
+```
+
 Ensuite :
 
     kubectl expose replicaset <api-replicaset>
 
 ## consumer.yaml
  
-
+```yaml
     apiVersion: apps/v1
             kind: ReplicaSet
             metadata:
@@ -118,11 +125,14 @@ Ensuite :
                     - name: http
                       containerPort: 80
                       protocol: TCP
+```
 Ensuite :
 
     kubectl expose replicaset <consumer-replicaset>
 
 ## redis.yaml
+
+```yaml
 
      apiVersion: apps/v1
                 kind: ReplicaSet
@@ -145,11 +155,15 @@ Ensuite :
                         name: redis
                         ports:
                         - containerPort: 6379
+
+```
 Ensuite :
 
     kubectl expose replicaset <redis-replicaset>
 
 ## rabbitmq.yaml
+
+```yaml
 
     apiVersion: apps/v1
                     kind: ReplicaSet
@@ -172,6 +186,7 @@ Ensuite :
                             name: rabbitmq
                             ports:
                             - containerPort: 15672
+```
 Ensuite :
 
     kubectl expose replicaset <rabbitmq-replicaset>
