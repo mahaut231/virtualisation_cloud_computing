@@ -308,4 +308,7 @@ Terraform will perform the following actions:
 
 Plan: 14 to add, 0 to change, 0 to destroy.
 ```
+La documentation nécéssaire à la réalisation de cette partie a été prise sur le lien suivant : 
+https://registry.terraform.io/providers/scaleway/scaleway/latest/docs
 
+Différents forums ont également été utilisés afin de déboger les erreurs auxquelles nous avons été confrontés.
