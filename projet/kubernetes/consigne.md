@@ -69,29 +69,29 @@ Ensuite :
 
 ```yaml
 
-      apiVersion: apps/v1
-        kind: ReplicaSet
-        metadata:
-          labels:
-            app: api
-          name: api-replicaset
-        spec:
-          replicas: 1
-          selector:
-            matchLabels:
-              app: pod-api
-          template:
-            metadata:
-              labels:
-                app: pod-api
-            spec:
-              containers:
-              - image: "A importer avec containeurisation"
-                name: pod-api
-                ports:
-                - name: http
-                  containerPort: 80
-                  protocol: TCP
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: api
+  name: api-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-api
+  template:
+    metadata:
+      labels:
+        app: pod-api
+    spec:
+      containers:
+      - image: nginx
+        name: pod-api
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
 
 ```
 
