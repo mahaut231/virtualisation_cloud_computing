@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: redis
+  name: rabbitmq-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: RabbitMQpod
+  template:
+    metadata:
+      labels:
+        app: RabbitMQpod
+    spec:
+      containers:
+      - image: rabbitmq
+        name: rabbitmq
+        ports:
+        - containerPort: 15672
+

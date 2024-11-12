@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+        kind: ReplicaSet
+        metadata:
+          labels:
+            app: consumer
+          name: consumer-replicaset
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              app: pod-consumer
+          template:
+            metadata:
+              labels:
+                app: pod-consumer
+            spec:
+              containers:
+              - image: nginx
+                name: pod-consumer
+                ports:
+                - name: http
+                  containerPort: 80
+                  protocol: TCP

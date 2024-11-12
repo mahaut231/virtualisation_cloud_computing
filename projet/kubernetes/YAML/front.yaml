@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: front
+  name: front-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-front
+  template:
+    metadata:
+      labels:
+        app: pod-front
+    spec:
+      containers:
+      - image: nginx
+        name: pod-front
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
