@@ -2,7 +2,7 @@
 
    
 
-    kubectl create namespace <Yoyo - May>
+    kubectl create namespace <Yoyo - Mahaut>
 
 #######
 
