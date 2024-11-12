@@ -1,9 +1,9 @@
 
 
 
-Ce que retourne la console après avoir entré les commandes :
+## Ce que retourne la console après avoir entré les commandes :
 
-Terraform init :
+# Terraform init :
 
 ```hlc
 Initializing the backend...
@@ -34,12 +34,12 @@ Success! The configuration is valid.
 ```
 
 
-Terraform validate :
+# Terraform validate :
 ```hlc
 Success! The configuration is valid.
 ```
 
-Terraform plan : 
+# Terraform plan : 
 
 ```hlc
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
