@@ -103,28 +103,29 @@ Ensuite :
  
 ```yaml
     apiVersion: apps/v1
-            kind: ReplicaSet
-            metadata:
-              labels:
-                app: consumer
-              name: consumer-replicaset
-            spec:
-              replicas: 1
-              selector:
-                matchLabels:
-                  app: pod-consumer
-              template:
-                metadata:
-                  labels:
-                    app: pod-consumer
-                spec:
-                  containers:
-                  - image: ?
-                    name: pod-consumer
-                    ports:
-                    - name: http
-                      containerPort: 80
-                      protocol: TCP
+kind: ReplicaSet
+metadata:
+  labels:
+    app: consumer
+  name: consumer-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-consumer
+  template:
+    metadata:
+      labels:
+        app: pod-consumer
+    spec:
+      containers:
+      - image: nginx (voir containerisation)
+        name: pod-consumer
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+
 ```
 Ensuite :
 
@@ -135,26 +136,27 @@ Ensuite :
 ```yaml
 
      apiVersion: apps/v1
-                kind: ReplicaSet
-                metadata:
-                  labels:
-                    app: redis
-                  name: redis-replicaset
-                spec:
-                  replicas: 1
-                  selector:
-                    matchLabels:
-                      app: Redispod
-                  template:
-                    metadata:
-                      labels:
-                        app: Redispod
-                    spec:
-                      containers:
-                      - image: redis:5.0.4
-                        name: redis
-                        ports:
-                        - containerPort: 6379
+kind: ReplicaSet
+metadata:
+  labels:
+    app: redis
+  name: redis-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: Redispod
+  template:
+    metadata:
+      labels:
+        app: Redispod
+    spec:
+      containers:
+      - image: redis:5.0.4
+        name: redis
+        ports:
+        - containerPort: 6379
+
 
 ```
 Ensuite :
@@ -166,26 +168,27 @@ Ensuite :
 ```yaml
 
     apiVersion: apps/v1
-                    kind: ReplicaSet
-                    metadata:
-                      labels:
-                        app: redis
-                      name: rabbitmq-replicaset
-                    spec:
-                      replicas: 1
-                      selector:
-                        matchLabels:
-                          app: RabbitMQpod
-                      template:
-                        metadata:
-                          labels:
-                            app: RabbitMQpod
-                        spec:
-                          containers:
-                          - image: rabbitmq
-                            name: rabbitmq
-                            ports:
-                            - containerPort: 15672
+kind: ReplicaSet
+metadata:
+  labels:
+    app: redis
+  name: rabbitmq-replicaset
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: RabbitMQpod
+  template:
+    metadata:
+      labels:
+        app: RabbitMQpod
+    spec:
+      containers:
+      - image: rabbitmq
+        name: rabbitmq
+        ports:
+        - containerPort: 15672
+
 ```
 Ensuite :
 
