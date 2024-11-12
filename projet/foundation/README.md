@@ -3,7 +3,8 @@
 
 Ce que retourne la console après avoir entré les commandes :
 
-#Terraform init :
+**#Terraform init :
+**
 
 Initializing the backend...
 Initializing provider plugins...
