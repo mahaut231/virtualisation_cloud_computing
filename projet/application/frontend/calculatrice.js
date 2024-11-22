@@ -2,6 +2,7 @@ let affiche = '0';
 let part1 = 0;
 let part2 = 0;
 let operation = '';
+let stockageId = 0;
 
 document.getElementById('bouton1').addEventListener ('click', 
     () => {
@@ -202,6 +203,18 @@ document.getElementById('bouton=').addEventListener('click',
     affiche = '0'
     }
 )
+
+
+document.getElementById('valider').addEventListener('click',
+
+    () => {
+        stockageId = document.getElementById('demande').value
+        console.log(stockageId)
+
+
+    }
+)
+
 
 
 function updateAffichage(){
