@@ -12,3 +12,8 @@ Cela vient du fait que nous préférons garder la partie qui nous semble le plus
 
 Yohann a donc réalisé la partie kubernetes tandis que Mahaut réalisait la partie Terraform.
 La partie Terraform est terminée mais il reste quelques changements à réaliser comme séparer les resources et peut-être changer quelques adresses IP laissées comme trouvées sur la documentation trouvée en ligne.
+
+## Deuxième séance 22/11/2024 :
+
+Lors de cette séance la partie du front end a été réalisée, il faudra juste enlever la partie qui fait le calcul directement dans le fichier JS ainsi qu'ajouter la gestion de l'API.
+Nous avons également commencé à créer l'API afin qu'elle puisse faire les calculs.
