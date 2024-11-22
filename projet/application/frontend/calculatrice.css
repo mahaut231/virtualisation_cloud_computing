@@ -16,6 +16,7 @@ button {
     cursor: pointer;
     background-color : #b582d7;
     color: white;
+    height: 50px;
 
 }
 
@@ -88,4 +89,25 @@ textarea{
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: 49px;
+}
+
+
+#idCalcul {
+    font-size: 1.5em;
+    text-align: right;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 0 auto 20px auto;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: arial;
+
+}
+
+h1{
+    color: #ea0c64;
+
 }
