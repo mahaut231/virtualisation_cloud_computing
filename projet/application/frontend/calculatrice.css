@@ -1,0 +1,65 @@
+body {
+    text-align: center;
+}
+
+#calculatrice {
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; }
+
+button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color : #b582d7;
+    color: white;
+
+}
+
+#chiffres {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    text-align: left;
+    
+}
+
+#operations {
+
+    display: flex; 
+    flex-direction: column;
+    gap: 10px; 
+    text-align: right;   
+}
+
+#boutonPlus{
+    background-color: #d782d4;
+}
+
+#boutonMultiplier{
+    background-color: #d782d4;
+
+}
+
+#bouton- {
+    background-color: #d782d4;
+}
+
+#boutonDiviser{  
+    background-color: #d782d4;
+}
+
+#resultat {
+    font-size: 1.5em;
+    text-align: right;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 0 auto 20px auto;
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
