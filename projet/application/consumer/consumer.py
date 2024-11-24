@@ -3,8 +3,8 @@ import pika
 import redis
 
 # Configuration de RabbitMQ et Redis
-RABBITMQ_HOST = 'localhost'
-REDIS_HOST = 'localhost'
+RABBITMQ_HOST = 'rabbitmq'
+REDIS_HOST = 'redis'
 REDIS_PORT = 6379
 
 # Connexion à RabbitMQ
