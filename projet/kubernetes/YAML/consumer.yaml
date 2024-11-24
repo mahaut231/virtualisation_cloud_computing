@@ -15,10 +15,13 @@ spec:
         app: pod-consumer
     spec:
       containers:
-      - image: nginx
-        name: pod-consumer
-        ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
-
+      - name: pod-consumer
+        image: consumer-image:latest  
+        env:
+        - name: RABBITMQ_HOST
+          value: "rabbitmq-service"  # Nom du service RabbitMQ dans Kubernetes
+        - name: REDIS_HOST
+          value: "redis-service"  # Nom du service Redis dans Kubernetes
+        - name: CONSUMER_QUEUE
+          value: "calculations"  # Nom de la queue que le consumer consomme
+        

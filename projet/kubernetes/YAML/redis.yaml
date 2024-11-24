@@ -8,15 +8,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Redispod
+      app: redisPod
   template:
     metadata:
       labels:
-        app: Redispod
+        app: redisPod
     spec:
       containers:
-      - image: redis:5.0.4
-        name: redis
+      - name: redis
+        image: redis:latest  
         ports:
         - containerPort: 6379
-
+        

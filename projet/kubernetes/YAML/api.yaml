@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  name: api-replicaset
   labels:
     app: api
-  name: api-replicaset
 spec:
   replicas: 1
   selector:
@@ -15,9 +15,16 @@ spec:
         app: pod-api
     spec:
       containers:
-      - image: nginx
-        name: pod-api
+      - name: pod-api
+        image: api-image:latest  
         ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
+        - containerPort: 5000  
+        env:
+        - name: RABBITMQ_HOST
+          value: "rabbitmq-service"  # A remplacer par le nom du service RabbitMQ dans Kubernetes
+        - name: REDIS_HOST
+          value: "redis-service"  # A remplacer par le nom du service Redis dans Kubernetes
+        - name: API_HOST
+          value: "0.0.0.0"  
+        - name: API_PORT
+          value: "5000"  
