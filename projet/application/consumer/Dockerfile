@@ -1,9 +1,9 @@
 FROM python:latest
 
-# Définir le répertoire de travail dans le conteneur
+
 WORKDIR /app
 
-# Installer les dépendances Python
+
 RUN pip install --no-cache-dir pika redis
 
 # Installer curl et dockerize
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y curl && \
     tar -xvzf /tmp/dockerize.tar.gz -C /usr/local/bin && \
     rm /tmp/dockerize.tar.gz
 
-# Copier le code du consumer
+
 COPY . .
 
 # Utiliser Dockerize pour attendre que RabbitMQ soit prêt avant de démarrer le consommateur

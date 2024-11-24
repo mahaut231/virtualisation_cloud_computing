@@ -2,7 +2,6 @@ FROM python:latest
 
 WORKDIR /app
 
-# Installer les dépendances Python
 RUN pip install flask flask-cors requests pika redis
 
 # Installer dockerize
@@ -12,7 +11,7 @@ RUN apt-get update && \
     tar -xvzf /tmp/dockerize.tar.gz -C /usr/local/bin && \
     rm /tmp/dockerize.tar.gz
 
-# Copier le code de l'API dans l'image
+
 COPY . .
 
 EXPOSE 5000
