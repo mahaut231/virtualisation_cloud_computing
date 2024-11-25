@@ -171,26 +171,34 @@ document.getElementById("boutonDiviser").addEventListener('click',
     }
 )
 
-document.getElementById('bouton=').addEventListener('click',
-    () => {
-        part2 = Number(affiche);
-        afficheId = calculate(part1,part2, operation);
-        document.getElementById("idCalcul").innerText = Number(afficheId);
-
+document.getElementById('bouton=').addEventListener('click', async () => {
+    part2 = Number(affiche);
+    try {
+        const id = await calculate(part1, part2, operation); 
+        afficheId = id; 
+        console.log(`ID de calcul généré : ${id}`);
+        document.getElementById("idCalcul").innerText = `ID du calcul : ${id}`;
+    } catch (error) {
+        console.error('Erreur lors de la soumission du calcul :', error);
     }
-)
+    affiche = '0';  
+});
 
 
-document.getElementById('valider').addEventListener('click',
 
-    () => {
-        stockageId = document.getElementById('demande').value;
-        console.log(stockageId)
-        affiche = getResultById(stockageId);
+document.getElementById('valider').addEventListener('click', async () => {
+    stockageId = document.getElementById('demande').value;
+    console.log(`ID soumis pour le résultat : ${stockageId}`);
+    try {
+        const result = await getResultById(stockageId); 
+        affiche = result !== null ? result : 'Erreur';
         updateAffichage();
-        affiche = '0'
+    } catch (error) {
+        console.error('Erreur lors de la récupération du résultat :', error);
     }
-)
+    affiche = '0';
+});
+
 
 
 
@@ -199,22 +207,23 @@ function updateAffichage(){
 }
 
 
-function calculate(number1, number2, operation) {
+async function calculate(number1, number2, operation) {
 
     try {
-        const response =  fetch('http://127.0.0.1:5000/api/calculate', {
+        const response =  await fetch('http://127.0.0.1:5000/api/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ part1, part2, operation })
+            body: JSON.stringify({ number1, number2, operation })
         });
 
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
-        const jsonResponse =  response.json(); // Lire le corps de la réponse une seule fois
-
+        const jsonResponse =  await response.json(); // Lire le corps de la réponse une seule fois
+        console.log(jsonResponse);
+        console.log(jsonResponse.id);
         return jsonResponse.id;
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
@@ -223,16 +232,16 @@ function calculate(number1, number2, operation) {
   
 
 
-function getResultById(resultId) {
+async function getResultById(resultId) {
     try {
-        const response =  fetch(`http://127.0.0.1:5000/api/result/${resultId}`, {
+        const response =  await fetch(`http://127.0.0.1:5000/api/result/${resultId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         if (response.ok) {
-            const data = response.json();
+            const data = await response.json();
 
             // Retourne directement les données obtenues depuis l'API
             return data.result;
