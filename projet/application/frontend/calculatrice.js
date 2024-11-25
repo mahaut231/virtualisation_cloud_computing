@@ -3,6 +3,7 @@ let part1 = 0;
 let part2 = 0;
 let operation = '';
 let stockageId = 0;
+let afficheId = 0;
 
 document.getElementById('bouton1').addEventListener ('click', 
     () => {
@@ -173,34 +174,9 @@ document.getElementById("boutonDiviser").addEventListener('click',
 document.getElementById('bouton=').addEventListener('click',
     () => {
         part2 = Number(affiche);
-        if (operation == 'addition'){
-            console.log(part1 + part2);
-            affiche = part1 + part2
-            affiche.toString
-            updateAffichage();
-        }
-        else if (operation == 'soustraction'){
-            affiche = part1 - part2;
-            affiche.toString;
-            updateAffichage();
-        }
-        else if (operation == 'multiplication'){
-            affiche = part1 * part2;
-            affiche.toString;
-            updateAffichage();
-        }
-        else if (operation == 'division'){
-            if (part2 == 0){
-                affiche = 'ERROR'
-                updateAffichage();
-            }
-            else {
-            affiche = part1 / part2;
-            affiche.toString;
-            updateAffichage();
-            }
-        }
-    affiche = '0'
+        afficheId = calculate(part1,part2, operation);
+        document.getElementById("idCalcul").innerText = Number(afficheId);
+
     }
 )
 
@@ -208,10 +184,11 @@ document.getElementById('bouton=').addEventListener('click',
 document.getElementById('valider').addEventListener('click',
 
     () => {
-        stockageId = document.getElementById('demande').value
+        stockageId = document.getElementById('demande').value;
         console.log(stockageId)
-
-
+        affiche = getResultById(stockageId);
+        updateAffichage();
+        affiche = '0'
     }
 )
 
@@ -220,3 +197,53 @@ document.getElementById('valider').addEventListener('click',
 function updateAffichage(){
     document.getElementById("resultat").innerText = affiche;
 }
+
+
+function calculate(number1, number2, operation) {
+
+    try {
+        const response =  fetch('http://127.0.0.1:5000/api/calculate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ part1, part2, operation })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        const jsonResponse =  response.json(); // Lire le corps de la réponse une seule fois
+
+        return jsonResponse.id;
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}
+  
+
+
+function getResultById(resultId) {
+    try {
+        const response =  fetch(`http://127.0.0.1:5000/api/result/${resultId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (response.ok) {
+            const data = response.json();
+
+            // Retourne directement les données obtenues depuis l'API
+            return data.result;
+        } else {
+            console.error('Erreur lors de la récupération du résultat');
+            return null; // Retourne null en cas d'erreur
+        }
+    } catch (error) {
+        console.error('Erreur:', error);
+        return null; // Retourne null en cas d'exception
+    }
+}
+
+
