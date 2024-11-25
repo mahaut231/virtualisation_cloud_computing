@@ -1,7 +1,8 @@
 body {
     text-align: center;
-    font: arial;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 
 #calculatrice {
     display: flex; 
@@ -90,6 +91,7 @@ textarea{
     overflow: hidden;
     text-overflow: ellipsis;
     height: 49px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
