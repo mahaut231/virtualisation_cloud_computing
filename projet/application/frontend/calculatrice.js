@@ -210,7 +210,7 @@ function updateAffichage(){
 async function calculate(number1, number2, operation) {
 
     try {
-        const response =  await fetch('http://127.0.0.1:5000/api/calculate', {
+        const response =  await fetch('http://api-service:5000/api/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -234,7 +234,7 @@ async function calculate(number1, number2, operation) {
 
 async function getResultById(resultId) {
     try {
-        const response =  await fetch(`http://127.0.0.1:5000/api/result/${resultId}`, {
+        const response =  await fetch(`http://api-service:5000/api/result/${resultId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

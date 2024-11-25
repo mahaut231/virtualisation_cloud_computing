@@ -1,26 +1,30 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  name: rabbitmq-replicaset
   labels:
     app: rabbitmq
-  name: rabbitmq-replicaset
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: RabbitMQpod
+      app: rabbitmq 
   template:
     metadata:
       labels:
-        app: RabbitMQpod
+        app: rabbitmq 
     spec:
       containers:
       - name: rabbitmq
-        image: "rabbitmq"  
+        image: rabbitmq:latest 
         env:
-          - name: RABBITMQ_USER
+          - name: RABBITMQ_DEFAULT_USER
             value: "admin"  
-          - name: RABBITMQ_PASSWORD
+          - name: RABBITMQ_DEFAULT_PASS
             value: "password"  
         ports:
-          - containerPort: 5672  
+        - containerPort: 5672
+          name: amqp
+        - containerPort: 15672
+          name: management
+

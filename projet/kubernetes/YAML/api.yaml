@@ -8,23 +8,23 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pod-api
+      app: api
   template:
     metadata:
       labels:
-        app: pod-api
+        app: api
     spec:
       containers:
-      - name: pod-api
-        image: api-image:latest  
+      - name: flask-api
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/api-projet-my:Mahaut-Yohann
         ports:
-        - containerPort: 5000  
+        - containerPort: 5000
+          name: http
         env:
         - name: RABBITMQ_HOST
-          value: "rabbitmq-service"  # A remplacer par le nom du service RabbitMQ dans Kubernetes
+          value: rabbitmq-service 
         - name: REDIS_HOST
-          value: "redis-service"  # A remplacer par le nom du service Redis dans Kubernetes
-        - name: API_HOST
-          value: "0.0.0.0"  
-        - name: API_PORT
-          value: "5000"  
+          value: redis-service    
+        - name: REDIS_PORT
+          value: "6379"
+

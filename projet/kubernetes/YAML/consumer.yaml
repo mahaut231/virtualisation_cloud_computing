@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  name: consumer-replicaset
   labels:
     app: consumer
-  name: consumer-replicaset
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pod-consumer
+      app: consumer
   template:
     metadata:
       labels:
-        app: pod-consumer
+        app: consumer
     spec:
       containers:
-      - name: pod-consumer
-        image: consumer-image:latest  
+      - name: python-consumer
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/consumer-projet-my:Mahaut-Yohann
         env:
         - name: RABBITMQ_HOST
-          value: "rabbitmq-service"  # Nom du service RabbitMQ dans Kubernetes
+          value: rabbitmq-service 
         - name: REDIS_HOST
-          value: "redis-service"  # Nom du service Redis dans Kubernetes
-        - name: CONSUMER_QUEUE
-          value: "calculations"  # Nom de la queue que le consumer consomme
-        
+          value: redis-service    
+        - name: REDIS_PORT
+          value: "6379"
+

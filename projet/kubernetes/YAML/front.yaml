@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
+  name: front-replicaset
   labels:
     app: front
-  name: front-replicaset
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pod-front
+      app: front 
   template:
     metadata:
       labels:
-        app: pod-front
+        app: front 
     spec:
       containers:
-      - image: nginx
-        name: pod-front
+      - name: frontend-container
+        image: europe-west1-docker.pkg.dev/polytech-dijon/polytech-dijon/frontend-projet-my:Mahaut-Yohann
         ports:
         - name: http
           containerPort: 80
           protocol: TCP
+

@@ -11,6 +11,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: svc-front
+            name: frontend-service
             port:
               number: 80
+
