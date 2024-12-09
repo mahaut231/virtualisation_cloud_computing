@@ -71,7 +71,7 @@ resource "scaleway_rdb_acl" "aclProduction" {
 
 resource "scaleway_domain_record" "entreeDev" {
   dns_zone = "calculatrice-dev-Yohann-Mahaut-polytech-dijon.kiowy.net"
-  name     = "entreeProd"
+  name     = "entreeDev"
   type     = "A"
   data     = scaleway_lb_ip.ipDev.ip_address
   ttl      = 3600
@@ -79,7 +79,7 @@ resource "scaleway_domain_record" "entreeDev" {
 
 resource "scaleway_domain_record" "entreeProd" {
   dns_zone = "calculatrice-Yohann-Mahaut-polytech-dijon.kiowy.net"
-  name     = "entreeDev"
+  name     = "entreeProd"
   type     = "A"
   data     = scaleway_lb_ip.ipProd.ip_address
   ttl      = 3600
