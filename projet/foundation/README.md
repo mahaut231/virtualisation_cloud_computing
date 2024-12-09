@@ -1,5 +1,5 @@
 
-#Schema description des fondations avec les noms de nos ressources
+# Schema description des fondations avec les noms de nos ressources
 
 ```mermaid
 graph LR
