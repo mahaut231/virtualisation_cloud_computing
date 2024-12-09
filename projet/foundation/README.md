@@ -1,3 +1,18 @@
+graph LR
+  subgraph k8s ["cluster"]
+    direction TB
+    node1
+    node2
+    node3
+  end
+  lbA["lbProd"] --> k8s
+  lbB["lbProd"] --> k8s
+  dns1(["entreeDev"]) --> lbB
+  dns2(["entreeProd"]) --> lbA
+  k8s --> db["baseDonnéesProduction"]
+  k8s --> reg[registre]
+  k8s --> db2["baseDonnéesDevelopment"]
+![image](https://github.com/user-attachments/assets/8fc0741a-d18f-4ddf-943e-f43e92bc00aa)
 
 
 
