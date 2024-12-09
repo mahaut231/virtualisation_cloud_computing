@@ -1,6 +1,7 @@
 
+#Schema description des fondations avec les noms de nos ressources
 
-```
+```mermaid
 graph LR
   subgraph k8s ["cluster"]
     direction TB
