@@ -1,3 +1,4 @@
+```mermaid
 graph LR
   subgraph k8s ["cluster"]
     direction TB
@@ -12,7 +13,7 @@ graph LR
   k8s --> db["baseDonnéesProduction"]
   k8s --> reg[registre]
   k8s --> db2["baseDonnéesDevelopment"]
-![image](https://github.com/user-attachments/assets/8fc0741a-d18f-4ddf-943e-f43e92bc00aa)
+  ```
 
 
 
