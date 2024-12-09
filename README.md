@@ -17,3 +17,12 @@ La partie Terraform est terminée mais il reste quelques changements à réalise
 
 Lors de cette séance la partie du front end a été réalisée, il faudra juste enlever la partie qui fait le calcul directement dans le fichier JS ainsi qu'ajouter la gestion de l'API.
 Nous avons également commencé à créer l'API afin qu'elle puisse faire les calculs.
+
+## Troisième séance 25/11/2024 : 
+
+Implémentation de l'API, la calculatrice est fonctionnelle. Quelques soucis dans la réalisation de la partie kubernetes.
+
+## Quatrième séance 09/12/2024 :
+
+Fin de la partie Fondation après ajout du diagramme descriptif au README.
+Travail sur la finalisation de la partie kubernetes.
